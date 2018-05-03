@@ -50,3 +50,14 @@ exports.users=async function(req,res,next){
         return next(e);
     }
 }
+
+// /users/:id
+
+exports.user=async function(req,res,next){
+    try{
+        let user=await db.User.findById(req.params.id);
+        return res.status(200).json(user);
+    }catch(e){
+        return next(e);
+    }
+}

@@ -6,10 +6,13 @@ const{
 	addSeafood,
 	deleteSeafood,
 	getSeafood,
-	users
+	users,
+	user
 }=require('../handlers/User');
 
 router.get('/',users);
+
+router.get('/users/:id',user);
 
 router.route('/users/:id/cart')
       .get(getSeafood);
