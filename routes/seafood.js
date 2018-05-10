@@ -5,7 +5,7 @@ const {createSeafood,getSeafood,getOneSeafood,upload,deleteSeafood,deleteAllSeaf
 
 
 router.route('/')
-    .post(upload.single('profileImageUrl'),createSeafood)
+    .post(upload.array('images',4),createSeafood)
     .get(getSeafood)
     .delete(deleteAllSeafood);
 

@@ -13,8 +13,8 @@ const seafoodSchema=new mongoose.Schema(
      		required:true,
      		maxLength:200
      	},
-          profileImageUrl:{
-               type:String
+         imageUrl:{
+               type:[String]
           }
      },{
           timestamps:true
