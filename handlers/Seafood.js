@@ -13,7 +13,7 @@
 
     const fileFilter = (req, file, cb) => {
         // reject a file
-        console.log(file+"  file")
+        console.log(file+" file filter")
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
             cb(null, true);
         } else {
