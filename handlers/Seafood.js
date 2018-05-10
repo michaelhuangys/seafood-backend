@@ -4,16 +4,18 @@
 
     var storage =   multer.diskStorage({
         destination: function (req, file, callback) {
+            console.log(file+" file dest")
             callback(null, './uploads');
         },
         filename: function (req, file, callback) {
+            console.log(file+"   file name")
             callback(null, Date.now()+'-'+file.originalname);
         }
     });
 
     const fileFilter = (req, file, cb) => {
         // reject a file
-        console.log(file+" file filter")
+        console.log(file.mimetype+" file filter");
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
             cb(null, true);
         } else {
@@ -28,6 +30,7 @@
 
     exports.createSeafood=async function(req,res,next){
         try{
+            console.log("create ")
             console.log(req.body.name+"  create "+req.body.description);
             console.log(req.files);
             var filePath=[];
